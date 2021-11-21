@@ -33,7 +33,7 @@ router.get('/party/:id', (req, res) => {
         });
     });
 });
-
+// Deletes a party.
 router.delete('/party/:id', (req, res) => {
     const sql = `DELETE FROM parties WHERE id = ?`;
     const params = [req.params.id];

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../../db/connection');
 const inputCheck = require('../../utils/inputCheck');
-
+// Gets voters.
 router.get('/voters', (req, res) => {
     const sql = `SELECT * FROM voters ORDER BY last_name`;
     
@@ -17,7 +17,7 @@ router.get('/voters', (req, res) => {
         });
     });
 });
-// Get single voter
+// Gets single voter.
 router.get('/voter/:id', (req, res) => {
     const sql = `SELECT * FROM voters WHERE id = ?`;
     const params = [req.params.id];
@@ -33,7 +33,7 @@ router.get('/voter/:id', (req, res) => {
         });
     });
 });
-
+// Creates a voter.
 router.post('/voter', ({ body }, res) => {
     const errors = inputCheck(body, 'first_name', 'last_name', 'email');
     if (errors) {
@@ -54,7 +54,7 @@ router.post('/voter', ({ body }, res) => {
         });
     });
 });
-
+// Updates a voter.
 router.put('/voter/:id', (req, res) => {
     const errors = inputCheck(req.body, 'email');
     if (errors) {
@@ -80,7 +80,7 @@ router.put('/voter/:id', (req, res) => {
         }
     });
 });
-
+// Deletes a voter.
 router.delete('/voter/:id', (req, res) => {
     const sql = `DELETE FROM voters WHERE id = ?`;
 
