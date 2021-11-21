@@ -30,7 +30,6 @@ router.get('/candidate/:id', (req, res) => {
                 LEFT JOIN parties 
                 ON candidates.party_id = parties.id 
                 WHERE candidates.id = ?`; // The question mark defines this as a prepared statement.
-
     const params = [req.params.id];
 
     db.query(sql, params, (err, row) => {
@@ -96,6 +95,7 @@ router.put('/candidate/:id', (req, res) => {
     const sql = `UPDATE candidates SET party_id = ? 
                  WHERE id = ?`;
     const params = [req.body.party_id, req.params.id];
+
     db.query(sql, params, (err, result) => {
         if (err) {
             res.status(400).json({ error: err.message });
