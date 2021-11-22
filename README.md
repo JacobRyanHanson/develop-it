@@ -13,8 +13,9 @@ This is a back-end server that stores data pertaning to a mock election.
 ## Installation
 1. Clone the repository.
 2. Ensure node.js is installed.
-3. Ensure MySQL is installed and the appropriate server password is used.
-4. Run the command "npm i" to download dependencies.
+3. Run the command "npm i" to download dependencies.
+4. Ensure MySQL is installed and the designated server accepts the password (else update it).
+5. Run the command "mysql -u root -p YJvGVmwCGu8W4PG".
 
 ## Usage
 1. Chosse an API platoform of your choice (for example Postman).
